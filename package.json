@@ -1,0 +1,23 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "Demo project for learning ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bchen2890/node-express.git"
+  },
+  "author": "Bchen2890",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bchen2890/node-express/issues"
+  },
+  "homepage": "https://github.com/bchen2890/node-express#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}
