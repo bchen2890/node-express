@@ -22,6 +22,15 @@ var controllers = {
             res.json(info);
         });
     },
+
+    welcome: (req, res) => {
+        console.log("welcome");
+        userApi.welcome(req, res, (err, info) => {
+            if (err)
+                res.send(err);
+            res.json(info);
+        });
+    },
 };
 
 module.exports = controllers;

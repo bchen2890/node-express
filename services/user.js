@@ -6,6 +6,9 @@ var user = {
             username: 'user_' + req.body.name,
         };
         res.send(registerInfo);
+    },
+    welcome: (req, res) => {
+        res.send("Welcome " + req.query.name);
     }
 };
 
