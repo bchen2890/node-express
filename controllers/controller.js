@@ -31,6 +31,14 @@ var controllers = {
             res.json(info);
         });
     },
+
+    index: (req, res) => {
+        res.render('index', {
+            subject: 'Pug template engine',
+            name: 'our template',
+            link: 'https://google.com'
+        });
+    }
 };
 
 module.exports = controllers;
