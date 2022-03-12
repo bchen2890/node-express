@@ -2,6 +2,7 @@
 
 const properties = require('../package.json');
 const userApi = require('../services/user');
+const fileApi = require('../services/file');
 
 var controllers = {
     about: (req, res) => {
@@ -37,6 +38,15 @@ var controllers = {
             subject: 'Pug template engine',
             name: 'our template',
             link: 'https://google.com'
+        });
+    },
+
+    file: (req, res) => {
+        console.log("file");
+        fileApi.readFile(req, res, (err, info) => {
+            if (err)
+                res.send(err);
+            res.json(info);
         });
     }
 };
