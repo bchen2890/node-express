@@ -48,6 +48,13 @@ var controllers = {
                 res.send(err);
             res.json(info);
         });
+    },
+
+    promiseFile: (req, res) => {
+        console.log("promiseFile");
+        fileApi.promiseFile()
+            .then(data => res.json(data))
+            .catch(err => res.send(err))
     }
 };
 

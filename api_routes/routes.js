@@ -8,5 +8,6 @@ module.exports = (app) => {
     app.route('/welcome').get(controller.welcome);
     app.get('/index', controller.index);
     app.get('/file', controller.file);
+    app.get('/promiseFile', controller.promiseFile);
 
 };
