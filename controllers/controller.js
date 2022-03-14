@@ -53,7 +53,11 @@ var controllers = {
     promiseFile: (req, res) => {
         console.log("promiseFile");
         fileApi.promiseFile()
-            .then(data => res.json(data))
+            .then(data => {
+                console.log(data)
+                res.send(data)
+                res.json(data);
+            })
             .catch(err => res.send(err))
     }
 };
