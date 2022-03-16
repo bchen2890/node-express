@@ -41,9 +41,18 @@ var controllers = {
         });
     },
 
-    file: (req, res) => {
+    readFile: (req, res) => {
         console.log("file");
         fileApi.readFile(req, res, (err, info) => {
+            if (err)
+                res.send(err);
+            res.json(info);
+        });
+    },
+
+    writeFile: (req, res) => {
+        console.log("writeFile");
+        fileApi.writeFile(req, res, (err, info) => {
             if (err)
                 res.send(err);
             res.json(info);
@@ -59,7 +68,18 @@ var controllers = {
                 res.json(data);
             })
             .catch(err => res.send(err))
-    }
+    },
+
+    appendFile: (req, res) => {
+        console.log("appendFile");
+        fileApi.appendFile(req, res, (err, info) => {
+            if (err)
+                res.send(err);
+            res.json(info);
+        });
+    },
+
+    
 };
 
 module.exports = controllers;

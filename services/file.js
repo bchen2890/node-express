@@ -4,7 +4,7 @@ var file = {
     readFile: (req, res) => {
         console.time('readFile()')
 
-        fs.readFile('assets/hello.txt', 'utf8', (err, data) => {
+        fs.readFile('assets/test.txt', 'utf8', (err, data) => {
             if (err) {
                 console.error(err);
                 return;
@@ -26,7 +26,28 @@ var file = {
                 resolve(data);
             })
         });
-    }
+    },
+    writeFile: (req, res) => {
+        const content = req.query.content;
+        fs.writeFile('assets/test.txt', content, err => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+        });
+        res.send("You wrote \"" + content + "\"");
+    },
+    appendFile: (req, res) => {
+        const content = req.query.content;
+        console.log("APPEND"+content)
+        fs.appendFile('assets/test.txt', content, err => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+        });
+        res.send("You append \"" + content + "\"");
+    },
 };
 
 module.exports = file;
