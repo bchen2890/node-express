@@ -23,3 +23,11 @@ console.log("emptyBuffer to String:", emptyBuffer.toString('utf-8'));
 //Get number of bytes
 console.log("length of emptyBuffer:", emptyBuffer.length)
 console.log("byteLength of emptyBuffer:", Buffer.byteLength(emptyBuffer));
+
+//Copy buffer
+var copyBuffer = Buffer.from('aaaabbbbaaaabbbb');
+emptyBuffer.copy(copyBuffer);
+console.log("copy:",copyBuffer.toString());
+
+//Compare buffers
+console.log("compare:",Buffer.compare(emptyBuffer, copyBuffer));
