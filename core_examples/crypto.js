@@ -23,6 +23,15 @@ function decrypt(text) {
     return decrypted.toString();
 }
 
+function hash(text) {
+    const hash = crypto.createHash('sha256', ENCRYPTION_KEY)
+        .update(text)
+        .digest('hex');
+
+    return hash;
+}
+
 var encrypted = encrypt(Buffer.from('Hello'))
 console.log('encrypted text:', encrypted);
 console.log('decrypted text:', decrypt(encrypted));
+console.log('hash text:', hash("Hello World"));
