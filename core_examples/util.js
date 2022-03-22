@@ -44,3 +44,44 @@ debug('this message is sent after but appeared defore timer');
 
 
 
+// Get a string representation of the object
+
+// Object
+const exampleObject = {};
+exampleObject.a = [exampleObject];
+exampleObject.b = [['a', ['b']], 'c', 'd'];
+exampleObject.b.obj = {
+    e: {}
+};
+exampleObject.b.obj.e.f = {};
+
+const { inspect } = require('util');
+console.log('INSPECT');
+
+//Default parameters
+console.log(" showHidden: false, depth:2, colors:false ---", inspect(exampleObject));
+
+console.log(" showHidden: true, depth:0, colors:false ---", inspect(exampleObject, true, 0));
+
+console.log(" showHidden: false, depth:0, colors:true ---", inspect(exampleObject, false, 0, true));
+
+console.log(" passing parameters in JSON format ---", inspect(exampleObject, { depth: 0, colors: true }));
+
+console.log(" showHidden: false, depth:3, colors:true ---", inspect(exampleObject.b, { depth: 3, colors: true }));
+
+class exampleClass {
+    constructor(name, number) {
+        this.name = name;
+        this.number = number;
+    }
+}
+
+// Inspecting geeksForGeeks class
+console.log(" inspect class ---", inspect(new exampleClass('example', 2), { colors: true }));
+
+
+
+
+
+
+
