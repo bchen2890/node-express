@@ -36,7 +36,7 @@ const delay = 50;
 
 setTimeout(() => {
     debugTimer('timer with delay %d ms', delay);
-    console.log("--------------------------");
+    debugTimer("--------------------------");
 
 }, delay);
 
@@ -76,9 +76,49 @@ class exampleClass {
     }
 }
 
-// Inspecting geeksForGeeks class
 console.log(" inspect class ---", inspect(new exampleClass('example', 2), { colors: true }));
 
+console.log("--------------------------");
+
+//util.types for some type checks
+const check = util.types
+console.log('[] is ArrayBuffer: ', check.isArrayBuffer([]));
+console.log('[] is AnyArrayBuffer: ', check.isAnyArrayBuffer([]));
+console.log('[] is ArrayBufferView: ', check.isArrayBufferView([]));
+
+console.log('{} is AnyArrayBuffer: ', check.isAnyArrayBuffer({}));
+console.log('{} is ArrayBufferView: ', check.isArrayBufferView({}));
+
+
+console.log('new Array() is AnyArrayBuffer: ', check.isAnyArrayBuffer(new Array()));
+console.log('new Array() is ArrayBufferView: ', check.isArrayBufferView(new Array()));
+
+console.log('new ArrayBuffer() is ArrayBuffer: ', check.isArrayBuffer(new ArrayBuffer()));
+console.log('new ArrayBuffer() is isAnyArrayBuffer: ', check.isAnyArrayBuffer(new ArrayBuffer()));
+console.log('new ArrayBuffer() is ArrayBufferView: ', check.isArrayBufferView(new ArrayBuffer()));
+
+console.log('new SharedArrayBuffer() is ArrayBuffer: ', check.isArrayBuffer(new SharedArrayBuffer()));
+console.log('new SharedArrayBuffer() is AnyArrayBuffer: ', check.isAnyArrayBuffer(new SharedArrayBuffer()));
+console.log('new SharedArrayBuffer() is ArrayBufferView: ', check.isArrayBufferView(new SharedArrayBuffer()));
+
+console.log('Buffer.from(\'b\') is ArrayBufferView: ', check.isArrayBufferView(Buffer.from('b')));
+console.log('Buffer.from(\'b\') is AnyArrayBuffer: ', check.isAnyArrayBuffer(Buffer.from('b')));
+
+console.log('new Int8Array() is ArrayBufferView: ', check.isArrayBufferView(new Int8Array()));
+console.log('new Int8Array() is AnyArrayBuffer: ', check.isAnyArrayBuffer(new Int8Array()));
+
+console.log('false is BooleanObject:', check.isBooleanObject(false)); 
+console.log('true is BooleanObject:', check.isBooleanObject(true));
+console.log('new Boolean(false) is BooleanObject:', check.isBooleanObject(new Boolean(false)));
+console.log('new Boolean(true) is BooleanObject:', check.isBooleanObject(new Boolean(true)));
+
+console.log('\'2022 - 03 - 23\' is Date:', check.isDate('2022-03-23'));
+console.log('new Date() is Date:', check.isDate(new Date()));
+console.log('new Date(\'2022 - 03 - 23\') is Date:', check.isDate(new Date('2022-03-23')));
+
+console.log('/[a-z]/ is RegExp:', check.isRegExp(/[a-z]/));
+console.log('new RegExp(\'[a - z] *\')) is RegExp:', check.isRegExp(new RegExp('[a-z]*')));
+console.log('{} is RegExp:', check.isRegExp({}))
 
 
 
